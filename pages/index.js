@@ -25,8 +25,8 @@ export default function Home() {
     'leonardomleitao'
   ];
 
-  // abstração do resultado
-  const statusLevel = 1;
+  // abstraction icon level prop
+  const statusLevel = 3;
 
 
   return (
