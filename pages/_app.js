@@ -1,9 +1,11 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import {AlurakutStyles} from '../src/lib/AlurakutCommons'
 
 const GlobalStyle = createGlobalStyle`
 
   *{
     /* reset CSS */
+    
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -26,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
     height: auto;
     display: block;
   }
+  ${AlurakutStyles}
 `
 
 const theme = {
