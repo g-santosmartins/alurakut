@@ -1,3 +1,4 @@
+import React, {useState} from 'react'
 import MainGrid from '../src/components/MainGrid'
 import Box from '../src/components/Box'
 import Input from '../src/components/Input';
@@ -23,6 +24,10 @@ function ProfileSidebar(props) {
 
 export default function Home() {
 
+  const [communities, setCommunities] = useState(['Alurakut']);
+
+  console.log(communities);
+
   const gitHubUser = 'g-santosmartins'
   const favoritePeople = [
     'Marco-25',
@@ -33,11 +38,20 @@ export default function Home() {
     'leonardomleitao'
   ];
 
+  // const communities = [
+  //   'Alurakut'
+  // ]
+
   // abstraction icon level prop
   const statusLevel = 3;
-  function handleCreateCommunity (e) {
+
+
+
+  function handleCreateCommunity(e) {
     e.preventDefault()
-    alert('Texto disparado aqui')
+    const communitiesUpadated = [...communities, 'Alura Stars' ]
+    setCommunities(communitiesUpadated)
+    console.log(communities)
   }
 
 
@@ -88,6 +102,32 @@ export default function Home() {
 
         <div className="profileRelations" style={{ gridArea: 'profileRelations' }}>
 
+
+          <ProfileRelationsBoxWrapper >
+            <h2 className="smallTitle">
+              Comunidades
+            </h2>
+
+            <ul>
+
+              {communities.map((currentItem) => {
+                return (
+                  <li>
+                    <a href={`/users/${currentItem}`} key={currentItem}>
+                      <img
+                        src={`http://placehold.it/300x300`}
+                        style={{ borderRadius: '8px' }}
+                      />
+                      <span>{currentItem}</span>
+                    </a>
+                  </li>
+                )
+              })}
+
+            </ul>
+
+          </ProfileRelationsBoxWrapper>
+
           <ProfileRelationsBoxWrapper >
             <h2 className="smallTitle">
               Pessoas da comunidade ({favoritePeople.length})
@@ -113,6 +153,8 @@ export default function Home() {
             </ul>
 
           </ProfileRelationsBoxWrapper>
+
+
 
         </div>
 
